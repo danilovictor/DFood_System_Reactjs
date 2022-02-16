@@ -18,7 +18,7 @@ export const Logo = styled.img`
 export const SearchInput = styled.input`
 border:0;
 border-radius: 25px;
-width:0px;
+width: ${props => props.active ? 300 : 0}px;
 height:50px;
 background-color:white;
 background-image:url(${search});
