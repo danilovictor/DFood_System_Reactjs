@@ -27,6 +27,14 @@ background-size:30px;
 background-position: 13px center;
 outline:0;
 padding-left: 50px;
+transition: all ease .3s;
+cursor:pointer;
+font-size:15px;
+
+    &:focus{
+        cursor:text;
+    }
+
 
 
 `;

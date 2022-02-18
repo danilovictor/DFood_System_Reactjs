@@ -8,7 +8,10 @@ const Header = ( {search , onSearch})=>{
     const [inputActive , setInputActive] = useState(false);
     
    const handleInputBlur = ()=>{
-       setInputActive(false);
+       if( search == ''){
+        setInputActive(false);
+       }
+       
 
     };
 
@@ -16,6 +19,7 @@ const Header = ( {search , onSearch})=>{
         setInputActive(true);
 
     };
+    
 
     const handleChange = (e)=>{
         onSearch(e.target.value);
@@ -25,7 +29,7 @@ const Header = ( {search , onSearch})=>{
         <div>
             <Container>
               <Logo src={logo}/>
-              <SearchInput type="text" placeholder="Digite o seu produto" value={search} onchange={handleChange} active={inputActive} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
+              <SearchInput type="text" placeholder="Digite o seu produto" value={search} onChange={handleChange} active={inputActive} onFocus={handleInputFocus} onBlur={handleInputBlur}/>
             </Container>
         </div>
     )
