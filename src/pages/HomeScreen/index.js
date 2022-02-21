@@ -10,44 +10,47 @@ import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
 
 
-    const loadCategory = async () => {
-        let response = await fetch('https://api.b7web.com.br/devsfood/api/category')
-        let json = response.json();
-        return json;
-
-        console.log(json);
-    }
+   
 
 
 export default () => {
+    
     const history = useHistory();
 
     const [headerSearch , setHeaderSearch] = useState('');
 
     const [categories , setCategories] = useState([]);
 
+    const [activeCategory , setActiveCategory] = useState(0);
+
     useEffect(() => {
 
-        // const getCategories =  async ()=>{
-        //     const cat = await api.getCategories();
+        const getCategories =  async ()=>{
+            const cat = await api.getCategories();
 
-        //     if(cat.error == ''){
-        //         setCategories( cat.result);
-        //     }
-        // };
+            if(cat.error == ''){
+                setCategories( cat.result);
+            }
+        };
 
-        // getCategories();
-
-        ( async ()=> {
-            const categories = await api.getCategories();
-        })();
-
-        console.log(categories);
-
-        loadCategory();
+        getCategories();
 
        
     }, [])
+
+    useEffect(() => {
+
+    }, [activeCategory])
+
+    // const loadCategory = async () => {
+    //     let response = await fetch('https://api.b7web.com.br/devsfood/api/categories')
+    //     let json = response.json();
+    //     return json;
+
+    //     setCategories(json)
+
+    //     console.log(json);
+    // }
 
    
   
@@ -60,9 +63,13 @@ export default () => {
 
            { categories.length > 0 && 
                <CategoryArea>
+                   Selecione uma categoria
                    <CategoryList>
 
-                       <CategoryItem title="todas as categorias" image={foodicon}/>
+                       <CategoryItem data={{ id : 0 , title : 'Todas as categorias' , image :{foodicon}}} activeCategory={ activeCategory} setActiveCategory={setActiveCategory} />
+                       {categories.map( ( item , index) =>(
+                           <CategoryItem key={index} data={item} activeCategory={activeCategory}/>
+                       ) )}
                    </CategoryList>
                </CategoryArea>
             

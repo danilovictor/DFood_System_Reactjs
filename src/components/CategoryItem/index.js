@@ -1,11 +1,16 @@
 import React from 'react';
-import { Container} from './styled'
+import { Container , CategoryImage} from './styled'
 
-const CategoryItem = () => {
+const CategoryItem = ({data , activeCategory , setActiveCategory}) => {
+
+    const handleCategoryClick = () => {
+        setActiveCategory( data.id )
+    }
+
     return (
         <div>
-            <Container>
-                
+            <Container active={activeCategory} id={data.id} onClick={handleCategoryClick}>
+                <CategoryImage src={data.image}/>
             </Container>
         </div>
     )
