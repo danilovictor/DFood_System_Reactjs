@@ -9,6 +9,16 @@ import foodicon from '../../assets/food-and-restaurant.png'
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
 
+
+    const loadCategory = async () => {
+        let response = await fetch('https://api.b7web.com.br/devsfood/api/category')
+        let json = response.json();
+        return json;
+
+        console.log(json);
+    }
+
+
 export default () => {
     const history = useHistory();
 
@@ -33,9 +43,13 @@ export default () => {
         })();
 
         console.log(categories);
+
+        loadCategory();
+
        
     }, [])
 
+   
   
 
     return (
