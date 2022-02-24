@@ -17,7 +17,7 @@ const MenuItem = ({icon , link})=>{
     return(
     
     <div>
-        <LinkArea active={isActive} href={link} onClick={handleClickDefault}>
+        <LinkArea data-tip="Texto" data-for="tip-right" active={isActive} href={link} onClick={handleClickDefault}>
 
             <LinkIcon src={icon}/>
 
