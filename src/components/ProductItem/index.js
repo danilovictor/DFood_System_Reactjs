@@ -13,7 +13,7 @@ const ProductItem = ({data})=> {
                 </ProductPhotoArea>
                     <ProductInfoArea>
                     <ProductName>{data.name}</ProductName>
-                    <ProductPrice>{data.price}</ProductPrice>
+                    <ProductPrice> R${data.price}</ProductPrice>
                     <ProductIngridentes>{data.ingredients}</ProductIngridentes>
                     </ProductInfoArea>
                     <ProductButtonArea>
