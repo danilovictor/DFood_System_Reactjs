@@ -2,6 +2,8 @@ import React , {useState , useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import { Container , CategoryArea , CategoryList} from './styled';
 
+import ReactTooltip from 'react-tooltip';
+
 import api from '../../services/api';
 
 import foodicon from '../../assets/food-and-restaurant.png';
@@ -31,6 +33,8 @@ export default () => {
             if(cat.error == ''){
                 setCategories( cat.result);
             }
+
+            ReactTooltip.rebuild();
         };
 
         getCategories();
@@ -67,7 +71,7 @@ export default () => {
                    Selecione uma categoria
                    <CategoryList>
 
-                       <CategoryItem data={{ id : 0 , title : 'Todas as categorias' , image :foodicon}} activeCategory={ activeCategory} setActiveCategory={setActiveCategory} />
+                       <CategoryItem data={{ id : 0 , name : 'Todas as categorias' , image :foodicon}} activeCategory={ activeCategory} setActiveCategory={setActiveCategory} />
                        {categories.map( ( item , index) =>(
                            <CategoryItem key={index} data={item} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                        ) )}
