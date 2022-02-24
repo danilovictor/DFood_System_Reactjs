@@ -1,6 +1,6 @@
 import React , {useState , useEffect} from 'react';
 import { useHistory } from "react-router-dom";
-import { Container , CategoryArea , CategoryList} from './styled';
+import { Container , CategoryArea , CategoryList , ProductArea , ProductList } from './styled';
 
 import ReactTooltip from 'react-tooltip';
 
@@ -10,6 +10,7 @@ import foodicon from '../../assets/food-and-restaurant.png';
 
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
+import ProductItem from '../../components/ProductItem';
 
 
    
@@ -23,7 +24,19 @@ export default () => {
 
     const [categories , setCategories] = useState([]);
 
+    const [products , setProducts] = useState([]);
+
     const [activeCategory , setActiveCategory] = useState(0);
+
+
+    const getProducts = async () => {
+        const prods = await api.getProducts()
+
+        if( prods.error == ''){
+            setProducts(prods.result.data)
+        }
+    }
+
 
     useEffect(() => {
 
@@ -43,6 +56,7 @@ export default () => {
     }, [])
 
     useEffect(() => {
+        getProducts();
 
     }, [activeCategory])
 
@@ -79,6 +93,17 @@ export default () => {
                </CategoryArea>
             
            }
+            {products.length > 0 &&
+                 <ProductArea>
+                 <ProductList>
+                     {products.map((item , index)=>(
+                         
+                         <ProductItem key={index} data={item}/>
+                     ))}
+                 </ProductList>
+             </ProductArea>
+            }
+          
         
         </Container>
     );
