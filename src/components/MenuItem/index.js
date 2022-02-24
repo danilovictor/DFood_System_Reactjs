@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory , useLocation } from 'react-router-dom';
 import { LinkArea , LinkIcon} from './styled.js'
 
-const MenuItem = ({icon , link})=>{
+const MenuItem = ({title , icon , link})=>{
 
     const history = useHistory();
     const location = useLocation();
@@ -17,7 +17,7 @@ const MenuItem = ({icon , link})=>{
     return(
     
     <div>
-        <LinkArea data-tip="Texto" data-for="tip-right" active={isActive} href={link} onClick={handleClickDefault}>
+        <LinkArea data-tip={title} data-for="tip-right" active={isActive} href={link} onClick={handleClickDefault}>
 
             <LinkIcon src={icon}/>
 
