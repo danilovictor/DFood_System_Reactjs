@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    display:${props => props.status ? 'flex' : 'none'};
     position: fixed;
     left: 0;
     right: 0;
@@ -8,7 +9,7 @@ export const Container = styled.div`
     top: 0;
     z-index: 900;
     background-color: rgba( 0 , 0 , 0,  0.7);
-    display:flex;
+    
     justify-content: center;
     align-items: center;
 `;
@@ -17,5 +18,7 @@ export const ModalBody = styled.div`
     background-color:white;
     width: 300px;
     height: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 50px #000 ;
 
 `;

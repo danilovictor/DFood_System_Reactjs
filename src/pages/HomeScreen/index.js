@@ -35,7 +35,7 @@ export default () => {
 
     const [activeSearch , setActiveSearch] = useState('');
 
-    const [modalActive , setModalActive] = useState(false);
+    const [modalActive , setModalActive] = useState(true);
 
 
     const getProducts = async ( activeCategory , activePage , activeSearch) => {
@@ -140,7 +140,7 @@ export default () => {
                 
             }
 
-            <Modal status={activeModal}>
+            <Modal status={modalActive} setStatus={setModalActive}>
                 Conteudo do modal
             </Modal>
           
