@@ -32,9 +32,14 @@ export const ProductList = styled.div`
 `;
 
 export const ProductPaginationArea = styled.div`
-
+    display:flex;
+    flex-wrap: wrap;
 `;
 
 export const ProductPaginationItem = styled.div`
-
+    background-color:#FFF;
+    padding:5px 10px ;
+    border-radius:5px;
+    box-shadow: rgba(0, 0, 0, 0.16);
+    cursor:pointer;
 `;

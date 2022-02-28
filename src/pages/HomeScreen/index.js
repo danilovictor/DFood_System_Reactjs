@@ -11,9 +11,10 @@ import foodicon from '../../assets/food-and-restaurant.png';
 import Header from '../../components/Header';
 import CategoryItem from '../../components/CategoryItem';
 import ProductItem from '../../components/ProductItem';
+import Modal from '../../components/Modal';
 
 
-   
+   let searchTimer = null;
 
 
 export default () => {
@@ -29,10 +30,15 @@ export default () => {
     const [activeCategory , setActiveCategory] = useState(0);
 
     const [totalPages , setTotalPages] = useState(0);
-    const [activePage , setActivePage] = useState(0);
+   
+    const [activePage , setActivePage] = useState(1);
+
+    const [activeSearch , setActiveSearch] = useState('');
+
+    const [modalActive , setModalActive] = useState(false);
 
 
-    const getProducts = async () => {
+    const getProducts = async ( activeCategory , activePage , activeSearch) => {
         const prods = await api.getProducts()
 
         if( prods.error == ''){
@@ -61,9 +67,22 @@ export default () => {
     }, [])
 
     useEffect(() => {
+
+        clearTimeout(searchTimer);
+
+        searchTimer = setTimeout(() =>{
+
+            setActiveSearch(headerSearch)
+            } , 2000)
+
+        }, [headerSearch])
+
+
+
+    useEffect(() => {
         getProducts();
 
-    }, [activeCategory])
+    }, [activeCategory , activeSearch])
 
     // const loadCategory = async () => {
     //     let response = await fetch('https://api.b7web.com.br/devsfood/api/categories')
@@ -109,19 +128,21 @@ export default () => {
              </ProductArea>
             }
 
-            Total:{totalPages}
-
             {totalPages  > 0 &&
 
                 <ProductPaginationArea>
                     {Array(totalPages).fill(0).map((item , index)=>(
-                        <ProductPaginationItem key={index}> 
+                        <ProductPaginationItem key={index} active={activePage} current={ index + 1}> 
                             {index + 1}
                         </ProductPaginationItem>
                     ))}
                 </ProductPaginationArea>
                 
             }
+
+            <Modal status={activeModal}>
+                Conteudo do modal
+            </Modal>
           
         
         </Container>
