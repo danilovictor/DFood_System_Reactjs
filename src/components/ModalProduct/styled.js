@@ -1,18 +1,37 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    width: 740px;
+    padding: 10px;
+
+`;
+
+export const ProductArea = styled.div`
+    height:100px;
+    background-color: red;
+    display:flex;
+`;
+
+export const ProductPhoto = styled.img`
+  width: 310px ;
+
+`;
+
+export const ProductInfoArea = styled.div`
+    flex:1;
+    background-color:blue;
+`;
+
+export const ProductDetails = styled.div`
 
 
 `;
 
-export const ProductArea = styled.div``;
+export const ProductQuantilyArea = styled.div`
+    
+`;
 
-export const ProductPhoto = styled.img``;
-
-export const ProductInfoArea = styled.div``;
-
-export const ProductDetails = styled.div``;
-
-export const ProductQuantilyArea = styled.div``;
-
-export const ProductButton = styled.div``;
+export const ProductButton = styled.div`
+    height: 50px ;
+    background-color:green;
+`;
