@@ -36,7 +36,9 @@ export default () => {
 
     const [activeSearch , setActiveSearch] = useState('');
 
-    const [modalActive , setModalActive] = useState(true);
+    const [modalActive , setModalActive] = useState(false);
+
+    const [modalData , setModalData] = useState({});
 
 
     const getProducts = async ( activeCategory , activePage , activeSearch) => {
@@ -96,6 +98,11 @@ export default () => {
     // Metodo usando a FETCH API do javascript
     // }
 
+    const handleProcutClick = ( data ) => {
+        setModalData(data)
+        setModalActive(true)
+    }
+
    
   
 
@@ -110,7 +117,9 @@ export default () => {
                    Selecione uma categoria
                    <CategoryList>
 
-                       <CategoryItem data={{ id : 0 , name : 'Todas as categorias' , image :foodicon}} activeCategory={ activeCategory} setActiveCategory={setActiveCategory} />
+                       <CategoryItem data={{ id : 0 , name : 'Todas as categorias' , image :foodicon}} activeCategory={ activeCategory}
+                        setActiveCategory={setActiveCategory} />
+
                        {categories.map( ( item , index) =>(
                            <CategoryItem key={index} data={item} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
                        ) )}
@@ -123,7 +132,7 @@ export default () => {
                  <ProductList>
                      {products.map((item , index)=>(
                          
-                         <ProductItem key={index} data={item}/>
+                         <ProductItem key={index} data={item} onClick={handleProcutClick}/>
                      ))}
                  </ProductList>
              </ProductArea>
@@ -142,7 +151,7 @@ export default () => {
             }
 
             <Modal status={modalActive} setStatus={setModalActive}>
-                <ModalProduct/>
+                <ModalProduct data={modalData} setStatus={setModalActive}/>
             </Modal>
           
         

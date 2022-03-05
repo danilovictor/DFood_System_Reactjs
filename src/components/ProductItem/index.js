@@ -4,10 +4,15 @@ import { Container , ProductPhotoArea , ProductPhoto , ProductInfoArea , Product
 
 import next from '../../assets/next.png'
 
-const ProductItem = ({data})=> {
+const ProductItem = ({data , onClick})=> {
+
+    const handleClick = () => {
+        onClick(data);
+    }
+
     return (
         <div>
-            <Container>
+            <Container onClick={handleClick}>
                 <ProductPhotoArea>
                     <ProductPhoto src={data.image}/>
                 </ProductPhotoArea>

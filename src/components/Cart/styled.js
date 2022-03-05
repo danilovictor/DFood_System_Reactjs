@@ -19,7 +19,11 @@ export const CartHeader = styled.div`
 `;
 
 
-export const CartBody = styled.div``;
+export const CartBody = styled.div`
+    display:${props => props.opened ? 'block' : 'show'};
+
+
+`;
 
 export const CartIcon = styled.img`
     width:23px;
