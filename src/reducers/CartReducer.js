@@ -6,11 +6,16 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+
+    let products = [...state.products]
+
     switch(action.type) {
+
+        
 
         case 'ADD_PRODUCT':
 
-            let products = [...state.products]
+            
 
             let id = action.payload.data.id
 
@@ -38,6 +43,27 @@ export default (state = initialState, action) => {
         // case 'SET_NAME':
         //     return {...state, name: action.payload.name};
         // break;
+
+        case 'CHANGE_PRODUCT' :
+            let products = [...state.products]
+            
+            switch (action.payload.type){
+                case '-':
+                    if(products[action.payload.key]){
+                        products[action.payload.key].qt--
+                    }
+                break;
+
+                case '+':
+                    if(products[action.payload.key]){
+                        products[action.payload.key].qt++
+                    }
+                break;
+            }
+            
+            return{...state , products}
+
+        break;
     }
 
     return state;
