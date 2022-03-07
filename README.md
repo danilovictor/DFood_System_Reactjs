@@ -3,6 +3,8 @@
 O projeto DevsFood foi desenvolvido juntamento com o curso da B7web. Ele é um mini e-comerce
 de comidas e delivery construindo Em ReactJS.
 
+https://devsfoodaplication.netlify.app/
+
 ## Stack utilizada
 
 **Front-end:** React, Redux, ReactHooks( useState , useState) , React-Router-Dom , FetchAPI
