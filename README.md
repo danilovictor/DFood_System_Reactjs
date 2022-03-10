@@ -11,7 +11,7 @@ https://devsfoodaplication.netlify.app/
 **Ferramentas:** Visual Studio Code ( IDE) , Git ( versionamento de códigos) Github( Repositório)
 Figma( IDE Designer)
 
-**Hospedagem**: Netflify ( CI / CD).
+**Hospedagem**: Netflify - Produção ( CI / CD).
 
 ## Funcionalidades
 
