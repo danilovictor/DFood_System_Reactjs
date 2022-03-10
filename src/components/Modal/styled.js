@@ -10,13 +10,14 @@ export const Container = styled.div`
     z-index: 900;
     background-color: rgba( 0 , 0 , 0,  0.7);
     
+    
     justify-content: center;
     align-items: center;
 `;
 
 export const ModalBody = styled.div`
     background-color:white;
-    width: 300px;
+    width: 760px;
     height: 300px;
     border-radius: 8px;
     box-shadow: 0px 0px 50px #000 ;

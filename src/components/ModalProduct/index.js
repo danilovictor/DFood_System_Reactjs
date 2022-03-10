@@ -7,12 +7,21 @@ import plus from '../../assets/plus.png';
 
 const ModalProduct = ({ data , setStatus }) => {
 
+
+    const [quantily , setQuantily] = useState(1)
+
+    useEffect(() => {
+        setQuantily(1)
+    }, [data])
+
+    const dispatch = useDispatch();
+
     const handleCancelButton = () => {
         setStatus(false);
     }
 
     const handleMinusQt = () => {
-       if (quantily > 2){
+       if (quantily > 1){
            setQuantily( quantily - 1 );
        }
     }
@@ -34,13 +43,7 @@ const ModalProduct = ({ data , setStatus }) => {
     }
 
 
-    const [quantily , setQuantily] = useState(1)
-
-    useEffect(() => {
-        setQuantily(1)
-    }, [data])
-
-    const dispatch = useDispatch();
+   
 
     return (
         <div>
@@ -55,7 +58,7 @@ const ModalProduct = ({ data , setStatus }) => {
                         </ProductDetails>
                         <ProductQuantilyArea>
                             <ProductQuantily>
-                                <ProductQtImage onclick={handleMinusQt} src={minus}/>
+                                <ProductQtImage onClick={handleMinusQt} src={minus}/>
                                     <ProductQtText> {quantily} </ProductQtText>
                                 <ProductQtImage onClick={handlePlusQt} src={plus}/>
                             </ProductQuantily>
