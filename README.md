@@ -7,7 +7,7 @@ https://devsfoodaplication.netlify.app/
 
 ## Stack utilizada
 
-**Front-end:** React, Redux, ReactHooks( useState , useState) , React-Router-Dom , FetchAPI
+**Front-end:** React, Redux, ReactHooks( useState , useEffeact) , React-Router-Dom , FetchAPI
 **Ferramentas:** Visual Studio Code ( IDE) , Git ( versionamento de códigos) Github( Repositório)
 Figma( IDE Designer)
 
